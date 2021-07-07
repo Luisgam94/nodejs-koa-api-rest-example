@@ -1,5 +1,5 @@
 const Router = require('koa-router');
-const koaBody = require('koa-body')();
+const koaBody = require('koa-body');
 const { createPost } = require('./post-api')
 const { statusReturn } = require('../services/statusService')
 const { schema } = require('../schemas/statusSchema')
@@ -31,7 +31,7 @@ const createRouterStatus = () => {
 
     })
 
-    router.post('/save', koaBody, (ctx)=>{
+    router.post('/save', koaBody(), (ctx)=>{
         const req1 = JSON.stringify(ctx.request.body)
         console.log(ctx.request.body)
         const request = {
