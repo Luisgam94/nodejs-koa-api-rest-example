@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: nodejs-api-example
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: nodejs-api-example
+  template:
+    metadata:
+      labels:
+        app: nodejs-api-example
+    spec:
+      containers:
+      - name: nodejs-api
+        image: 499092/luisgamarra:node-app
+        imagePullPolicy: IfNotPresent
+        ports:
+        - containerPort: 3000
